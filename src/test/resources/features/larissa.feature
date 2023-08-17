@@ -4,3 +4,4 @@
     @git
     Scenario: Create a Pull Request
       Given I added gitignore
+      And I am practicing
