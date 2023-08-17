@@ -1,3 +1,4 @@
 @git
   Feature:  Git Demo
-    Scenario:
+    Scenario: Git conflicts
+      Given I create a conflict with Galina
