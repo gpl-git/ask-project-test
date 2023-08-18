@@ -9,7 +9,7 @@ import org.openqa.selenium.By;
 import static org.assertj.core.api.Assertions.assertThat;
 import static support.TestContext.getDriver;
 
-public class RegLnameArunaStepdefs {
+public class RegStepDefs {
 
     @When("I type {string} into first name field")
     public void iTypeIntoFirstNameField(String fname) {
