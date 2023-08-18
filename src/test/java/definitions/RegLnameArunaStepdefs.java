@@ -3,8 +3,10 @@ package definitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.maven.surefire.shared.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static support.TestContext.getDriver;
 
 public class RegLnameArunaStepdefs {
@@ -26,5 +28,28 @@ public class RegLnameArunaStepdefs {
     @Then("I type {string} into confirm password field")
     public void iTypeIntoConfirmPasswordField(String confirmpswd) {
         getDriver().findElement(By.xpath("//*[@formcontrolname = 'confirmPassword']")).sendKeys(confirmpswd);
+    }
+
+    @Then("error message {string}")
+    public void errorMessage(String expectedError) {
+        String actualError = getDriver().findElement(By.xpath("//mat-error")).getText();
+        System.out.println(actualError);
+        assertThat(actualError.equals(expectedError)).isTrue();
+    }
+
+    @Then("confirmation message {string} should be displayed")
+    public void confirmationMessageShouldBeDisplayed(String expMessage) {
+        String actMessage = getDriver().findElement(By.xpath("//h4")).getText();
+        System.out.println(actMessage);
+        assertThat(actMessage.equals(expMessage)).isTrue();
+    }
+
+    @When("I type {int} characters into last name field")
+    public void iTypeCharactersIntoLastNameField(int num) {
+        boolean useLetters =true;
+        boolean useNumbers = true;
+        String generatedString = RandomStringUtils.random(num, useLetters, useNumbers);
+        System.out.println(generatedString);
+        getDriver().findElement(By.xpath("//*[@formcontrolname = 'lastName']")).sendKeys(generatedString);
     }
 }
