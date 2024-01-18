@@ -1,3 +1,3 @@
 @git
 
-  Featur
+  Feature: Learning git
