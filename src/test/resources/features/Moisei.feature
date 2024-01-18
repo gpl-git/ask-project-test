@@ -1,3 +1,3 @@
 @git
 
-  Feature: git
+  Feature: git hub
