@@ -2,4 +2,5 @@
   Feature: Learning Git
 
     @git1
-    Scenario: Git commandsgi
+    Scenario: Git commands
+      Given
