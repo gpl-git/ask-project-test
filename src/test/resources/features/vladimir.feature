@@ -3,5 +3,4 @@
 
     @git1
     Scenario: Git commands
-      Given
-      When
+      Given I create first conflict
