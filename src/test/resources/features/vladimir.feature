@@ -4,3 +4,4 @@
     @git1
     Scenario: Git commands
       Given
+      When
