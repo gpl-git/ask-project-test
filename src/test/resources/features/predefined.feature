@@ -1,2 +1,0 @@
-@predefined
-Feature: Smoke steps
