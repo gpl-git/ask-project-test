@@ -3,4 +3,4 @@
 
     @git1
     Scenario: Git commands
-      Given
+      Given I create a conflict with Vladimir
