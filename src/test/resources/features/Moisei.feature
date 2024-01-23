@@ -1,3 +1,6 @@
 @git
 
-  Feature: git hub
+  Feature: Learning github
+
+    @git1
+    Scenario Git commands
