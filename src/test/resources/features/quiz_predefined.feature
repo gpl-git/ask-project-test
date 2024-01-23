@@ -22,7 +22,6 @@
       When I type "Option 1" into "Option 1*" of "Q1"
       And I type "Option 2" into "Option 2*" of "Q1"
       When I select "Option 2*" as a correct option in "Q1"
-      And I wait for 600 sec
       And I click button "Save"
       And I wait for 1 sec
       Then quiz "Demo TA Quiz" is displayed on the list of quizzes
