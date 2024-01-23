@@ -112,4 +112,8 @@ public class QuizStepDefs {
         getDriver().findElement(By.xpath("//ac-modal-confirmation/..//span[text()='Delete']")).click();
     }
 
+    @And("I select Show-Stopper option")
+    public void iSelectShowStopperOption() {
+        getDriver().findElement(By.xpath("//span[contains(text(), 'Show-Stopper')]")).click();
+    }
 }
