@@ -50,6 +50,7 @@ public class QuizStepDefs {
 //        System.out.println(actRole);
         assertThat(actRole.contains(actRole)).isTrue();
 
+
     }
 
     @When("I click {string} menu item")
@@ -112,8 +113,4 @@ public class QuizStepDefs {
         getDriver().findElement(By.xpath("//ac-modal-confirmation/..//span[text()='Delete']")).click();
     }
 
-    @And("I select Show-Stopper option")
-    public void iSelectShowStopperOption() {
-        getDriver().findElement(By.xpath("//span[contains(text(), 'Show-Stopper')]")).click();
-    }
 }

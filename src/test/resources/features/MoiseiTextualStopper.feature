@@ -19,6 +19,7 @@ Feature: Quiz Predefined
     And I add a question
     When I select "Textual" question in "Q1"
     And I type "Question 1" into question field of "Q1"
+    And I wait for 1 sec
     And I click button "Save"
     And I wait for 1 sec
     Then quiz "Demo Texual Quiz Moisei" is displayed on the list of quizzes
@@ -27,16 +28,32 @@ Feature: Quiz Predefined
 
   @quiz2
     Scenario: Create a Textual Quiz with Showstopper
-    When I click "Quizzes" menu item
-    Then url contains text "quiz"
-    And I wait for 1 sec
-    When I click button "Create New Quiz"
-    And I wait for 1 sec
     When I type "Showstopper Texual Quiz Moisei" into title field
     And I add a question
     When I select "Textual" question in "Q1"
     And I type "Question 1" into question field of "Q1"
     And I select Show-Stopper option
+    And I verify that Show-Stopper option is present
+    And I click button "Save"
+    And I wait for 1 sec
+    Then quiz "Showstopper Texual Quiz Moisei" is displayed on the list of quizzes
+    And I delete "Showstopper Texual Quiz Moisei" from the list of quizzes
+
+  @quiz2
+    Scenario: Create a Textual Quiz with 2 showstoppers
+    When I type "Showstopper Texual Quiz Moisei" into title field
+    And I add a question
+    When I select "Textual" question in "Q1"
+    And I type "Question with showstopper" into question field of "Q1"
+    And I select Show-Stopper option
+    And I verify that Show-Stopper option is present
+#    And I verify that Show-Stopper option is present MP
+    And I add a question
+    When I select "Textual" question in "Q2"
+    And I type "Question with showstopper" into question field of "Q2"
+    And I select second Show-Stopper option
+    And I verify that second Show-Stopper option is present
+    And I wait for 1 sec
     And I click button "Save"
     And I wait for 1 sec
     Then quiz "Showstopper Texual Quiz Moisei" is displayed on the list of quizzes
