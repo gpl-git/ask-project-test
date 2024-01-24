@@ -95,3 +95,12 @@
       And error message "Should be a valid email address" is displayed
       And I wait for 1 sec
 
+    @regEmail12
+    Scenario: Invalid format - no top level domain
+#      Known issue DEC23-xxxx
+      And I type "1a@2b" into email field
+      And I click button "Register Me"
+      And I wait for 1 sec
+      And error message "Should be a valid email address" is displayed
+      And I wait for 1 sec
+
