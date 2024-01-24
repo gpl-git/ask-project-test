@@ -31,7 +31,7 @@
         And I wait for 1 sec
         Then quiz "Demo TA Quiz" is displayed on the list of quizzes
         And I delete "Demo TA Quiz" from the list of quizzes
-
+g
 
 
 
