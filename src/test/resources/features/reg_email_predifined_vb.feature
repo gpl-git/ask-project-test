@@ -69,7 +69,7 @@
       And I click button "Register Me"
       And I wait for 2 sec
       And error message "Should be a valid email address" is displayed
-      And I wait for 1 sec
+      And I wait for 3 sec
 
     @regEmail9
     Scenario: Max 128 characters
@@ -84,7 +84,7 @@
       When I type 43 characters before @ sign, 42 characters after @ sign, . sign and 42 characters after . sign VB
       And I click button "Register Me"
       And I wait for 2 sec
-      And snack bar "Data too long for column 'email' at row 1 " is displayed VB
+      And snack bar "Data too long" is displayed VB
       And I wait for 1 sec
 
     @regEmail11

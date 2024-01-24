@@ -62,5 +62,9 @@ public class RegStepDefsVB {
     @And("snack bar {string} is displayed VB")
     public void snackBarIsDisplayedVB(String expError) {
         assertThat(getDriver().findElement(By.xpath("//snack-bar-container[@role='alert']")).isDisplayed()).isTrue();
+        String actError = getDriver().findElement(By.xpath("//snack-bar-container[@role='alert']")).getText();
+        System.out.println(actError);
+        assertThat(actError.contains(expError)).isTrue();
+//        Data too long for column 'email' at row 1
     }
 }
