@@ -14,16 +14,14 @@
 
     @login2
     Scenario Outline: Student login page-outline
-      Given ss type <url> page
+      Given ss type "login" page
       When ss type <email> into email field
       And ss type <password> in password field
-      And ss click <btnName> button
-      And ss wait for <sec> sec
       Then error message <expError> is displayed ss
       Examples:
-        | url     | email                          | password | btnName   | sec | expError                 |
-        | "login" | "6dvjnd4@colevillecapital.com" | ""  | "Sign In" | 1   | "This field is required" |
-        | "login" | "6dvjnd4@colevillecapital.com" | "  "  | "Sign In" | 1   | "Whitespaces are not allowed" |
-        | "login" | "" | "12345"  | "Sign In" | 1   | "This field is required" |
-        | "login" | "123@" | "12345"  | "Sign In" | 1   | "Should be a valid email address" |
+        | email                          | password | expError                 |
+        | "6dvjnd4@colevillecapital.com" | ""       | "This field is required" |
+        | "6dvjnd4@colevillecapital.com" | "  "     | "Whitespaces are not allowed" |
+        | ""                           | "12345"  | "This field is required"  |
+        | "123@"                         | "12345" | "Should be a valid email address" |
 
