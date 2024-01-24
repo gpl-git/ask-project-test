@@ -112,14 +112,6 @@ public class QuizStepDefs {
         getDriver().findElement(By.xpath("//ac-modal-confirmation/..//span[text()='Delete']")).click();
     }
 
-    @Then("I click on element with {string}")
-    public void iClickOnElementWithXpath(String xpath) {
-        getDriver().findElement(By.xpath(xpath)).click();
-    }
 
 
-    @Then("I check that element with {string} xpath")
-    public void iCheckThatElementWithHasText(String arg0) {
-        getDriver().findElement(By.xpath(arg0)).getText();
-    }
 }
