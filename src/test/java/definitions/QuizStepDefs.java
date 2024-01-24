@@ -47,7 +47,7 @@ public class QuizStepDefs {
     @Then("user role {string} is displayed")
     public void userRoleIsDisplayed(String expRole) {
         String actRole = getDriver().findElement(By.xpath("//div[@class ='info']")).getText();
-//        System.out.println(actRole);
+ //       System.out.println(actRole);
         assertThat(actRole.contains(actRole)).isTrue();
 
     }
