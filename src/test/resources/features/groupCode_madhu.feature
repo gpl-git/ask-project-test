@@ -51,7 +51,7 @@
         | group1   | message                           |
         | " ABC"   | "No leading spaces are allowed"   |
         | "AB "    | "No trailing spaces are allowed"  |
-        | "A BC"   | "No white spaces in are allowed"     |
+        | "A BC"   | "No white spaces in are allowed"  |
 
     @regGroupcode5 @smoke
     Scenario Outline: Allowed number of characters in group code field
