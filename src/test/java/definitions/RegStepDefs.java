@@ -38,6 +38,8 @@ public class RegStepDefs {
     @Then("error message {string} is displayed")
     public void errorMessageIsDisplayed(String expError) {
         String actError = getDriver().findElement(By.xpath("//mat-error")).getText();
-             assertThat(actError.equals(expError))  .isTrue() ;
+        System.out.println(actError);
+        assertThat(actError.equals(expError)).isTrue();
+
     }
 }
