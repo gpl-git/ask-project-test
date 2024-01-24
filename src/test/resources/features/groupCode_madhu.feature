@@ -42,27 +42,33 @@
       Then error message "No white spaces are allowed" is displayed
 
     @regGroupcode4 @smoke
-  Scenario: All possible messages for Group Code
-  When I type "ABC" into group field
-  Then confirmation message "You have been Registered." is displayed
-      When I type "Group1" into group field
-      Then error message "message" is displayed
+    Scenario Outline: All possible messages for white space in Group Code
+      When I type <group1> into group field
+      Then error message <message> is displayed
       And I wait for 2 sec
-
-
-
-    Scenario Outline: Group Code Messages Outline
-      When I type <groupCode> into group field
-      Then  error message <message> is displayed
-      And I wait for 2 sec
+#      This is known issue
       Examples:
-        | groupCode     | message                                |
-        | " ABC"        | "No white spaces are allowed"            |
-        | "ABC "        | "No white spaces are allowed"            |
-        | "A"           | "You have been Registered."              |
-        | "ABC123ABC1"  | "You have been Registered."              |
-        | "ABC123ABC12" | "No more than 10 characters are allowed" |
-        | ""            | "This field is required"                 |
+        | group1   | message                           |
+        | " ABC"   | "No leading spaces are allowed"   |
+        | "AB "    | "No trailing spaces are allowed"  |
+        | "A BC"   | "No white spaces in are allowed"     |
+
+    @regGroupcode5 @smoke
+    Scenario Outline: Allowed number of characters in group code field
+      When I type <group> into group field
+      Then confirmation message <expMessage> is displayed
+      Examples:
+        | group           | expMessage                       |
+        | "A"             | "You have been Registered."      |
+        | "123456789"     | "You have been Registered."      |
+        | "1234567890"    | "You have been Registered."      |
+        | "12345678901"   | "Only 10 characters are allowed" |
+
+
+
+
+
+
 
 
 
