@@ -3,6 +3,7 @@
     Background:
       Given I open "registration" page
       Then url contains text "registration"
+      
     @regGroupcode1 @Smoke
     Scenario: Group Code Happy Path/DEC23-430
       When I type "Ocean" into first name field
@@ -37,8 +38,31 @@
       And I type "ABC@123" into confirm password field
       When I click button "Register Me"
       And I wait for 1 sec
+#      This is known  issue
       Then error message "No white spaces are allowed" is displayed
 
+    @regGroupcode4 @smoke
+  Scenario: All possible messages for Group Code
+  When I type "ABC" into group field
+  Then confirmation message "You have been Registered." is displayed
+      When I type "Group1" into group field
+      Then error message "message" is displayed
+      And I wait for 2 sec
+
+
+
+    Scenario Outline: Group Code Messages Outline
+      When I type <groupCode> into group field
+      Then  error message <message> is displayed
+      And I wait for 2 sec
+      Examples:
+        | groupCode     | message                                |
+        | " ABC"        | "No white spaces are allowed"            |
+        | "ABC "        | "No white spaces are allowed"            |
+        | "A"           | "You have been Registered."              |
+        | "ABC123ABC1"  | "You have been Registered."              |
+        | "ABC123ABC12" | "No more than 10 characters are allowed" |
+        | ""            | "This field is required"                 |
 
 
 
