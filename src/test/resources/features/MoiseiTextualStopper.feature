@@ -1,4 +1,4 @@
-@quiz
+@PredefinedMoisei
 Feature: Quiz Predefined
   Background:
     Given I open "login" page
@@ -13,7 +13,7 @@ Feature: Quiz Predefined
     When I click button "Create New Quiz"
     And I wait for 1 sec
 
-  @quiz1
+  @textualNoStopper
   Scenario: Create a Textual Quiz with no Showstopper
     When I type "Demo Texual Quiz Moisei" into title field
     And I add a question
@@ -26,7 +26,7 @@ Feature: Quiz Predefined
     And I delete "Demo Texual Quiz Moisei" from the list of quizzes
 
 
-  @quiz2
+  @TextualStopper
     Scenario: Create a Textual Quiz with Showstopper
     When I type "Showstopper Texual Quiz Moisei" into title field
     And I add a question
@@ -39,7 +39,7 @@ Feature: Quiz Predefined
     Then quiz "Showstopper Texual Quiz Moisei" is displayed on the list of quizzes
     And I delete "Showstopper Texual Quiz Moisei" from the list of quizzes
 
-  @quiz2
+  @textual2Showstoppers
     Scenario: Create a Textual Quiz with 2 showstoppers
     When I type "Showstopper Texual Quiz Moisei" into title field
     And I add a question
