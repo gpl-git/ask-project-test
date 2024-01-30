@@ -50,6 +50,7 @@ public class QuizStepDefs {
 //        System.out.println(actRole);
         assertThat(actRole.contains(actRole)).isTrue();
 
+
     }
 
     @When("I click {string} menu item")

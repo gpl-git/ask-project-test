@@ -40,7 +40,7 @@ public class TextQueStepdefs {
     @When("ss select {string} question in {string}")
     public void ssSelectQuestionIn(String qNum, String qType) {
        getDriver().findElement(By.xpath("//mat-panel-title[contains(text(),'"+qType+"')]/../../..//*[contains(text(),'"+qNum+"')]")).click();
-//        getDriver().findElement(By.xpath("//mat-panel-title[contains(text(), 'Q1')]/../../..//*[contains(text(), 'Textual')]")).click();
+
 
     }
 
@@ -64,10 +64,23 @@ public class TextQueStepdefs {
     @And("ss type {string} into question field of {string}")
     public void ssTypeIntoQuestionFieldOf(String qNum, String qText) {
 //        getDriver().findElement(By.xpath("//mat-panel-title[contains(text(),'"+qNum+"')]/../../..//*[@formcontrolname='question']")).sendKeys(qText);
-        getDriver().findElement(By.xpath("//mat-panel-title[contains(text(), 'Q1')]/../../..//*[contains(text(), 'Textual')]")).click();
+       getDriver().findElement(By.xpath("//mat-panel-title[contains(text(), 'Q1')]/../../..//*[contains(text(), 'Textual')]")).click();
     }
 
 
+    @Then("ss clear the {string} into question field of {string}")
+    public void ssClearTheIntoQuestionFieldOf(String qNum, String qText) {
+        getDriver().findElement(By.xpath("//mat-panel-title[contains(text(),'"+qNum+"')]/../../..//*[@formcontrolname='question']")).clear();
+
+    }
+
+    @Then("error message {string} is displayed sss")
+    public void errorMessageIsDisplayedSss(String expectedmessage) {
+        String actualMessage = getDriver().findElement(By.xpath("//mat-error")).getText();
+        System.out.println(actualMessage);
+        assertThat(actualMessage.equals(expectedmessage)).isTrue();
+
+    }
 }
 
 
