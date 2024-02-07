@@ -1,5 +1,5 @@
 @git
-  Feature Learning Git
+  Feature: Learning Git
 
     @git1
     Scenario: Git commands
