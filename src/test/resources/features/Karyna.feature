@@ -2,4 +2,4 @@
 
   Feature: Karyna
 
-    Scenario:
+    Scenario: My scenario
