@@ -3,4 +3,4 @@
 
     @git
     Scenario: My first git commands!!
-      Given I create a conflict with Galina
+      Given I create a conflict with Galina!
