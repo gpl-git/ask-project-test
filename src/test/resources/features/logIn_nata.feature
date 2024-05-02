@@ -4,7 +4,6 @@ Feature: ASK LogIn Scenarios
   Background:
     Given I go to "login" page
 
-
   @login1
   Scenario: Log in "Happy path"
     When I type "ask_instr@aol.com" to email field
