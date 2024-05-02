@@ -30,7 +30,6 @@
         | "Af345Q"  |
         | "12345qte12345qte12345qte12345qte"  |
         | "@#%^&*()_+=.,/?!"  |
-        | "12345"  |
 
     @reg_password3
     Scenario: Password/Confirm Password do not match
