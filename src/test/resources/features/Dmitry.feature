@@ -2,5 +2,5 @@
   Feature: Git Practice
 
     @git1
-    Scenario: My first git comands
-      Given I create a conflict with Dmitry
+    Scenario: My first git commands
+      Given I create a conflict with Geronti
