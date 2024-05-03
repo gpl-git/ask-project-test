@@ -1,5 +1,5 @@
-@quiz
-  Feature: ASK Quiz Scenarios
+@qTotal
+  Feature: Quiz total questions
     Background:
       Given I go to "login" page
       When I type "ask_instr@aol.com" to email field
@@ -11,9 +11,9 @@
       When I click button "Create New Quiz"
       And I wait for 1 seconds
 
-    @quiz1
-    Scenario: Quiz Demo
-      When I type "Galina TA Demo" as quiz title
+    @qTotal1
+    Scenario: Quiz with 1 question
+      When I type "Geronti Demo" as quiz title
       And I add a question
       When I select "Single" question in "Q1"
       And I type "Question 1" to question field in "Q1"
@@ -22,7 +22,20 @@
       And I select "Option 2*" as a correct option in "Q1"
       When I click button "Save"
       And I wait for 1 seconds
-      Then quiz "Galina TA Demo" should be displayed on the list of quizzes
+      Then quiz "Geronti Demo" should be displayed on the list of quizzes
+      Then quiz "Geronti Demo" should have "1" question(s)
       Then I wait for 2 seconds
-      And I delete quiz "Galina TA Demo" from the list of quizzes
+      And I delete quiz "Geronti Demo" from the list of quizzes
       And I wait for 2 seconds
+
+
+      @qTotal2
+      Scenario: Quiz with multiple questions
+        When I type "Geronti Demo" as quiz title
+        And I add 50 questions and confirm total number of questions added
+        Then I wait for 2 seconds
+        Then Element with expath should be present
+        Then I select 50 question(s) and fill out all the fields
+        Then I wait for 2 seconds
+
+
