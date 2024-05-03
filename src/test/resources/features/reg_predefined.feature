@@ -19,7 +19,7 @@
       Then message "You have been Registered." should be displayed
       Examples:
         | fName  |
-        | "John" |
+        | "John6" |
         | "John121212" |
         | "John@@@@@" |
 

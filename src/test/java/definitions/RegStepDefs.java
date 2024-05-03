@@ -32,7 +32,7 @@ public class RegStepDefs {
 
     @Then("message {string} should be displayed")
     public void messageShouldBeDisplayed(String expMessage) {
-        String actMessage = getDriver().findElement(By.xpath("//h4")).getText();
+        String actMessage = getDriver().findElement(By.xpath("//h4[contains(text(),'You have been Registered.')]")).getText();
         System.out.println(actMessage);
         assertThat(actMessage.equals(expMessage)).isTrue();
 
