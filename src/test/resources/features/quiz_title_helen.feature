@@ -1,4 +1,4 @@
-@quiz
+@quiztitle
 Feature: ASK Quiz Scenarios
   Background:
     Given I go to "login" page
@@ -11,7 +11,7 @@ Feature: ASK Quiz Scenarios
     When I click button "Create New Quiz"
     And I wait for 1 seconds
 
-  @quiz1
+  @quiztitle1
   Scenario: Quiz Demo
     When I type "Quiz Title Helen" as quiz title
     And I add a question
