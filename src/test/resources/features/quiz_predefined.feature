@@ -25,4 +25,4 @@
       Then quiz "Galina TA Demo" should be displayed on the list of quizzes
       Then I wait for 2 seconds
       And I delete quiz "Galina TA Demo" from the list of quizzes
-      And I wait for 2 seconds
+      And I wait for 1 seconds

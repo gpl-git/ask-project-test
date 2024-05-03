@@ -36,6 +36,6 @@
         Then I wait for 2 seconds
         Then Element with expath should be present
         Then I select 50 question(s) and fill out all the fields
-        Then I wait for 2 seconds
+        Then I wait for 1 seconds
 
 
