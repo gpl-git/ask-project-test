@@ -85,3 +85,10 @@
         | " "   | " "     | "Whitespaces are not allowed" | "Whitespaces are not allowed" |
         | "1234"   | "boundary33CHARACTERSboundary33CHA"     | "Should be at least 5 characters" | "Too long. Should be no more than 32 characters" |
         | "boundary33CHARACTERSboundary33CHA"   | "boundary33CHARACTERSboundary33CHA"     | "Too long. Should be no more than 32 characters" | "Too long. Should be no more than 32 characters" |
+
+      @reg_password7
+      Scenario: Password/Confirm Password masked with bullets, copy/paste is disabled
+        When I type "123456" to password field
+        Then password field is masked and copy-paste is disabled
+        And I type "123456" into confirm password field
+        Then confirm password field is masked

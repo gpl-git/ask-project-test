@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 
+import static javax.swing.text.html.CSS.getAttribute;
 import static org.assertj.core.api.Assertions.assertThat;
 import static support.TestContext.getDriver;
 
@@ -42,5 +43,16 @@ public class RegPassMargaritaStepDefs {
         String actualPassError = getDriver().findElement(By.xpath("//input[@formcontrolname='password']/../../..//mat-error")).getText();
         System.out.println(actualPassError);
         assertThat(actualPassError.equals(expectedPassError)).isTrue();
+    }
+
+
+    @Then("password field is masked and copy-paste is disabled")
+    public void fieldIsMaskedAndCopyPasteIsDisabled() {
+        assertThat(getDriver().findElement(By.xpath("//input[@formcontrolname='password']")).getAttribute("type")).isEqualTo("password");
+    }
+
+    @Then("confirm password field is masked")
+    public void fieldIsMasked() {
+        assertThat(getDriver().findElement(By.xpath("//input[@formcontrolname='confirmPassword']")).getAttribute("type")).isEqualTo("password");
     }
 }
