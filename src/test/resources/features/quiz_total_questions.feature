@@ -32,10 +32,18 @@
       @qTotal2
       Scenario: Quiz with multiple questions
         When I type "Geronti Demo" as quiz title
-        And I add 50 questions and confirm total number of questions added
-        Then I wait for 2 seconds
+        And I add 10 questions and confirm total number of questions added
         Then Element with expath should be present
-        Then I select 50 question(s) and fill out all the fields
+        Then I select 10 question(s) and fill out all the fields
         Then I wait for 1 seconds
+        Then Element with expath should be present
+        And I click save
+        Then I wait for 2 seconds
+        Then quiz "Geronti Demo" should be displayed on the list of quizzes
+        Then I wait for 2 seconds
+        Then quiz "Geronti Demo" should have "10" question(s)
+       And I delete quiz "Geronti Demo" from the list of quizzes
+
+        
 
 

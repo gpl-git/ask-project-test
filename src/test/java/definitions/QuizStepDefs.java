@@ -91,17 +91,19 @@ public class QuizStepDefs {
     }
 
     @And("I delete quiz {string} from the list of quizzes")
-    public void iDeleteQuizFromTheListOfQuizzes(String quizTitle) {
+    public void iDeleteQuizFromTheListOfQuizzes(String quizTitle) throws InterruptedException {
         getDriver().findElement(By.xpath("//mat-panel-title[contains(text(),'" + quizTitle + "')]")).click();
+        Thread.sleep(500);
         getDriver().findElement(By.xpath("//mat-panel-title[contains(text(),'" + quizTitle + "')]/../../..//*[contains(text(),'Delete')]")).click();
-        getDriver().findElement(By.xpath("//ac-modal-confirmation/..//span[text()='Delete']")).click();
+        Thread.sleep(100);
+        getDriver().findElement(By.xpath("//button[@class='mat-button mat-warn']")).click();
     }
 
 
     @Then("quiz {string} should have {string} question\\(s)")
     public void quizShouldHaveQuestionS(String quizTitle, String expectedNumber) {
         assertThat(getDriver().findElement(By.xpath("//mat-panel-title[contains(text(),'" + quizTitle + "')]")).isDisplayed()).isTrue();
-        String actualNumber = getDriver().findElement(By.xpath("//mat-panel-title[contains(text(),'Geronti Demo')]/..//*[contains(text(),'1 Question')]")).getText();
+        String actualNumber = getDriver().findElement(By.xpath("//mat-panel-title[contains(text(),'"+quizTitle+"')]/..//*[contains(text(),'"+expectedNumber+" Question')]")).getText();
         System.out.println(actualNumber);
         assertThat(actualNumber.contains(expectedNumber)).isTrue();
     }
