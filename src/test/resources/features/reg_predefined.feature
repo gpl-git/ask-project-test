@@ -11,6 +11,7 @@
       And I type "12345" to confirm password field
 
 
+
     @reg1 @fName
     Scenario Outline: Fist Name Happy Path
       When I type <fName> to fName field
@@ -22,5 +23,7 @@
         | "John" |
         | "John121212" |
         | "John@@@@@" |
+
+
 
 
