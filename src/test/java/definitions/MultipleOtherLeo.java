@@ -23,12 +23,12 @@ public class MultipleOtherLeo {
 
     @Then("I click on the quiz with title {string}")
     public void iClickOnTheQuizWithTitle(String title) {
-        getDriver().findElement(By.xpath("//mat-panel-title[contains(text(), '"+title+"')]")).click();
+        getDriver().findElement(By.xpath("//mat-panel-title[contains(text(), '" + title + "')]")).click();
     }
 
     @And("I click quiz {string} button {string}")
     public void iClickQuizButton(String title, String btn) {
-        getDriver().findElement(By.xpath("//mat-panel-title[contains(text(), '"+title+"')]/../../..//span[contains(text(),'"+btn+"')]")).click();
+        getDriver().findElement(By.xpath("//mat-panel-title[contains(text(), '" + title + "')]/../../..//span[contains(text(),'" + btn + "')]")).click();
     }
 
     @Then("other option is displayed")
@@ -65,11 +65,24 @@ public class MultipleOtherLeo {
 
     @When("I type {int} symbols to {string} field in {string}")
     public void iTypeSymbolsToFieldIn(int iLong, String oNum, String qNum) {
-        boolean useLet =true;
-        boolean useNum =true;
+        boolean useLet = true;
+        boolean useNum = true;
         String symLong = RandomStringUtils.random(iLong, useLet, useNum);
         String xpath = "//mat-panel-title[contains(text(),'" + qNum + "')]/../../..//*[@placeholder='" + oNum + "']";
         getDriver().findElement(By.xpath(xpath)).sendKeys(symLong);
     }
 
+    @Then("error message {string} should be displayed")
+    public void errorMessageShouldBeDisplayed(String msg) {
+//        getDriver().findElement(By.xpath("(//mat-error[contains(text(), 'This field is required')])[1]")).isDisplayed();
+        switch (msg) {
+            case "This field is required":
+                getDriver().findElement(By.xpath("(//mat-error[contains(text(), 'This field is required')])[1]")).isDisplayed();
+                break;
+            case "*Choose at least one correct answer":
+                getDriver().findElement(By.xpath("//div[contains(text(), 'one correct answer')]")).isDisplayed();
+                break;
+
+        }
+    }
 }

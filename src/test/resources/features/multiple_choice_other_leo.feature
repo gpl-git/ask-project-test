@@ -64,3 +64,28 @@
       When I click quiz "Leo Demo Multiple: 1000" button "Delete"
       Then I confirm
       And I wait for 2 seconds
+
+    @multiple4
+    Scenario: Errors handling
+      When I type "Leo Demo Multiple: errors handling" as quiz title
+      And I add a question
+      When I select "Multiple" question in "Q1"
+      When I click button "Save"
+      Then error message "This field is required" should be displayed
+      And I type "What is regression testing?" to question field in "Q1"
+      When I click button "Save"
+      Then error message "This field is required" should be displayed
+      When I type "Regression testing ensures that recent code changes haven't adversely affected existing features by retesting the unchanged parts of the software." to "Option 1*" field in "Q1"
+      When I click button "Save"
+      Then error message "This field is required" should be displayed
+      When I type "2nd answer" to "Option 2*" field in "Q1"
+      When I click button "Save"
+      Then error message "*Choose at least one correct answer" should be displayed
+      And I select option "1" checkbox as a correct option in "Q1"
+      When I click button "Save"
+      Then quiz "Leo Demo Multiple: errors handling" should be displayed on the list of quizzes
+      And I wait for 1 seconds
+      Then I click on the quiz with title "Leo Demo Multiple: errors handling"
+      When I click quiz "Leo Demo Multiple: errors handling" button "Delete"
+      Then I confirm
+      And I wait for 2 seconds
