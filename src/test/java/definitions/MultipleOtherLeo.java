@@ -3,6 +3,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.sl.In;
 import net.bytebuddy.utility.RandomString;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
@@ -11,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.assertj.core.api.Assertions;
 import support.TestContext;
+import org.testng.Assert;
 
 
 import static support.TestContext.getDriver;
@@ -84,5 +86,14 @@ public class MultipleOtherLeo {
                 break;
 
         }
+    }
+
+    @Then("verify disabled {string} for {string}")
+    public void verifyDisabled(String bt , String opt )  {
+
+        getDriver().findElement(By.xpath("//label[contains(text(), '"+ opt +"')]/ancestor::*[6]//mat-icon[text()='settings']")).click();
+        getDriver().findElement(By.xpath("//button[@disabled='true' and span[contains(text(), '"+ bt +"')]]")).isDisplayed();
+        getDriver().findElement(By.xpath("//button [4]")).click();;
+
     }
 }
