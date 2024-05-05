@@ -26,14 +26,20 @@ Feature: ASK Quiz Scenarios - Title of Quiz
 
 
   @quiztitle2
-  Scenario: Allowable characters: Alphanumeric & Special characters
-    When I type "Quiz Title Helen MAR24*" as quiz title
-    And I add a question
-    When I select "Textual" question in "Q1"
-    And I type "Quiz Title Helen - Textual" to question field in "Q1"
-    When I click button "Save"
-    And I wait for 1 seconds
-    Then quiz "Quiz Title Helen MAR24*" should be displayed on the list of quizzes
-    And I delete quiz "Quiz Title Helen MAR24*" from the list of quizzes
-    And I wait for 2 seconds
-
+  Scenario Outline: Allowable characters: Alphanumeric & Sp. characters
+    When I type <quizTitle> as quiz title
+    And I click anywhere next to the field
+    Then I verify for non-Latin letters and digits in the field
+    Examples:
+      | quizTitle                |
+      | "Quiz" |
+      | "Quiz Title Helen MAR24" |
+      | "Quiz_Title_Helen_MAR24" |
+      | "Quiz Title Helen MAR24*" |
+      | "Quiz/MAR24*" |
+      | "552024" |
+      | "Название теста" |
+      | "田中太郎" |
+      | "泽东" |
+      | "แม" |
+      | "ابن خلدون" |
