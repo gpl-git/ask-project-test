@@ -57,7 +57,7 @@
         Then I click button "Close"
         Then I wait for 2 seconds
         And I delete quiz "Karyna Demo Single Choice Question" from the list of quizzes
-        And I wait for 5 seconds
+        And I wait for 3 seconds
 
 
 

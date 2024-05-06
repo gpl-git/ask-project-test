@@ -109,6 +109,7 @@ public class QuizShowStopperDesf {
     public void showStopperQuestionIsDisplayed() {
         Assertions.assertThat(getDriver().findElement(By.xpath("//p[contains(text(),'Show-Stopper Question')]")).isDisplayed()).isTrue();
     }
+
     @And("I delete quiz {string} from the list of quizzes")
     public void iDeleteQuizFromTheListOfQuizzes(String quizTitle) throws InterruptedException {
         getDriver().findElement(By.xpath("//mat-panel-title[contains(text(),'" + quizTitle + "')]/../../..//*[contains(text(),'Delete')]")).click();
