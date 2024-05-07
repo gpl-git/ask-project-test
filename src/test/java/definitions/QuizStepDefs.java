@@ -95,8 +95,9 @@ public class QuizStepDefs {
         getDriver().findElement(By.xpath("//mat-panel-title[contains(text(),'" + quizTitle + "')]")).click();
         Thread.sleep(500);
         getDriver().findElement(By.xpath("//mat-panel-title[contains(text(),'" + quizTitle + "')]/../../..//*[contains(text(),'Delete')]")).click();
-        Thread.sleep(100);
-        getDriver().findElement(By.xpath("//button[@class='mat-button mat-warn']")).click();
+        Thread.sleep(500);
+        getDriver().findElement(By.xpath("//ac-modal-confirmation/../../..//button[contains(@class,'mat-button mat-warn')]")).click();
+        Thread.sleep(500);
     }
 
 

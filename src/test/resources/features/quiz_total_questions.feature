@@ -32,17 +32,37 @@
       @qTotal2
       Scenario: Quiz with multiple questions
         When I type "Geronti Demo" as quiz title
-        And I add 10 questions and confirm total number of questions added
+        And I add 2 questions and confirm total number of questions added
         Then Element with expath should be present
-        Then I select 10 question(s) and fill out all the fields
+        Then I select 2 question(s) and fill out all the fields
         Then I wait for 1 seconds
         Then Element with expath should be present
         And I click save
         Then I wait for 2 seconds
         Then quiz "Geronti Demo" should be displayed on the list of quizzes
         Then I wait for 2 seconds
-        Then quiz "Geronti Demo" should have "10" question(s)
-       And I delete quiz "Geronti Demo" from the list of quizzes
+        Then quiz "Geronti Demo" should have "2" question(s)
+        And I delete quiz "Geronti Demo" from the list of quizzes
+
+
+
+
+      @qTotal3
+      Scenario: check if quiz can contain more then 50 questions
+#        in case the scenario passes it means user can create a quiz with more then 50 questions
+#        which is against the requirements
+        When I type "yourQuizName" as quiz title
+        And I add 51 questions and confirm total number of questions added
+        Then I select 51 question(s) and fill out all the fields
+        Then I wait for 1 seconds
+        And I click save
+        Then I wait for 1 seconds
+        Then quiz "yourQuizName" should be displayed on the list of quizzes
+        Then I wait for 2 seconds
+        Then quiz "yourQuizName" should have "51" question(s)
+        And I delete quiz "yourQuizName" from the list of quizzes
+
+
 
         
 
