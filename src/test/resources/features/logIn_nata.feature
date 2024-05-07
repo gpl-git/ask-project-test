@@ -5,12 +5,13 @@ Feature: ASK LogIn Scenarios
     Given I go to "login" page
 
   @login1
-  Scenario: Log in "Happy path"
+  Scenario: Log in "Happy path for Teacher"
     When I type "ask_instr@aol.com" to email field
     And I type "ABC123" to password field
     When I click button "Sign In"
     And I wait for 1 seconds
     Then I should see the page title as "Assessment Control @ Portnov"
+    And I should see the Teacher's role of the user
 
   @login2
   Scenario: Log in with incorrect password
@@ -57,3 +58,17 @@ Feature: ASK LogIn Scenarios
       | "ask_instr@aol.com" | ""         | "Sign In" | 1   | "This field is required" |
 
 
+   @login7
+    Scenario: Password is masked, copy/paste is disabled
+     When I type "ask_instr@aol.com" to email field
+     And I type "ABC123" to password field
+     Then "password" field is masked and copy-paste is disabled
+
+  @login8
+  Scenario: Log in "Happy path for Student"
+    When I type "student4@test.com" to email field
+    And I type "ABC123" to password field
+    When I click button "Sign In"
+    And I wait for 1 seconds
+    Then I should see the page title as "Assessment Control @ Portnov"
+    And I should see the Student's role of the user
