@@ -92,14 +92,22 @@
       And I add a question
       When I select "Multiple" question in "Q1"
       And I type "What is regression testing?" to question field in "Q1"
+      And I wait for 1 seconds
       When I type "Regression testing ensures that recent code changes haven't adversely affected existing features by retesting the unchanged parts of the software." to "Option 1*" field in "Q1"
+      And I wait for 1 seconds
       Then verify disabled "Delete Option" for "Option 1*"
+      And I wait for 1 seconds
       When I type "2nd answer" to "Option 2*" field in "Q1"
+      And I wait for 1 seconds
       Then verify disabled "Delete Option" for "Option 2*"
+      And I wait for 1 seconds
       And I select option "1" checkbox as a correct option in "Q1"
+      And I wait for 1 seconds
       When I click button "Save"
+      And I wait for 1 seconds
       Then quiz "Leo Demo Multiple: Delete option" should be displayed on the list of quizzes
       And I wait for 1 seconds
       Then I click on the quiz with title "Leo Demo Multiple: Delete option"
+      And I wait for 1 seconds
       When I click quiz "Leo Demo Multiple: Delete option" button "Delete"
       Then I confirm

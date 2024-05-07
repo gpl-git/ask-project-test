@@ -89,11 +89,14 @@ public class MultipleOtherLeo {
     }
 
     @Then("verify disabled {string} for {string}")
-    public void verifyDisabled(String bt , String opt )  {
+    public void verifyDisabled(String bt , String opt ) throws InterruptedException {
 
         getDriver().findElement(By.xpath("//label[contains(text(), '"+ opt +"')]/ancestor::*[6]//mat-icon[text()='settings']")).click();
+        Thread.sleep(200);
         getDriver().findElement(By.xpath("//button[@disabled='true' and span[contains(text(), '"+ bt +"')]]")).isDisplayed();
+        Thread.sleep(200);
         getDriver().findElement(By.xpath("//button [4]")).click();;
+        Thread.sleep(200);
 
     }
 }
