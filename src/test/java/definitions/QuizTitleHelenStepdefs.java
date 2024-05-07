@@ -12,12 +12,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static support.TestContext.getDriver;
 
 public class QuizTitleHelenStepdefs {
-    @Then("error message {string} should be displayed")
-    public void errorMessageShouldBeDisplayed(String errMessage) {
-        String actMessage = getDriver().findElement(By.xpath("//mat-error")).getText();
-        System.out.println(actMessage);
-        assertThat(actMessage.contains(errMessage)).isTrue();
-    }
+//    @Then("error message {string} should be displayed")
+//    public void errorMessageShouldBeDisplayed(String errMessage) {
+//        String actMessage = getDriver().findElement(By.xpath("//mat-error")).getText();
+//        System.out.println(actMessage);
+//        assertThat(actMessage.contains(errMessage)).isTrue();
+//    }
 
 
     @And("I click anywhere next to the field")
