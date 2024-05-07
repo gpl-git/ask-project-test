@@ -59,8 +59,9 @@ public class Reg_fName_OlgaStepDefs {
     }
 
     @Then("err message {string} should be displayed")
-    public void errMessageShouldBeDisplayed(String mess) {
-        getDriver().findElement(By.xpath("//div[contains(text(),'"+mess+"')]")).getText();
-        System.out.println(mess);
+    public void errMessageShouldBeDisplayed(String expMess) {
+        String actMess = getDriver().findElement(By.xpath("//simple-snack-bar")).getText();
+        System.out.println(actMess);
+        assertThat(actMess.equals(expMess)).isTrue();
     }
 }

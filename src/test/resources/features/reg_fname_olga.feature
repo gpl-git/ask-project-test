@@ -38,7 +38,8 @@
         When I type "中山" to firstName field
         And I type "dxp93mkz@livegolftv.com" to email field
         And I click "Register Me" button
-        Then err message "Incorrect string value: '\xE4\xB8\xAD\xE5\xB1\xB1...' for column 'name' at row 1" should be displayed
+        And I wait for 1 seconds
+        Then err message "Incorrect string value" should be displayed
         Then I wait for 2 seconds
 
 
