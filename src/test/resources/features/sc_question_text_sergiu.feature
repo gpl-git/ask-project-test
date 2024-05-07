@@ -40,7 +40,7 @@
       And I wait for 1 seconds
       When I click button "Save"
       And I wait for 1 seconds
-      Then error message "This field is required" should be displayed
+      Then error message "This field is required" should be displayed now
       And I wait for 1 seconds
 
     @sc_question_text3
@@ -100,7 +100,7 @@
       When I type 1001 alphanumeric characters to question field in "Q1"
       And I wait for 1 seconds
 #      The following step is failing. Known issue MAR24-499
-      Then error message "Max 1000 characters" should be displayed
+      Then error message "Max 1000 characters" should be displayed now
 
     @sc_question_text6
     Scenario: MAR24-370 (Input with only space)
@@ -119,4 +119,4 @@
       And I select "Option 2*" as a correct option in "Q1"
       And I wait for 1 seconds
 #      The following step is failing. Known issue MAR24-390
-      Then error message "This field is required" should be displayed
+      Then error message "This field is required" should be displayed now

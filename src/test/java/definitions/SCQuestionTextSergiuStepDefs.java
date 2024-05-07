@@ -15,7 +15,7 @@ public class SCQuestionTextSergiuStepDefs {
         assertThat(getDriver().findElement(By.xpath("//mat-panel-title[contains(text(),'" + text + "')]/../../..//*[@formcontrolname='question']")).isDisplayed()).isTrue();
     }
 
-    @Then("error message {string} should be displayed")
+    @Then("error message {string} should be displayed now")
     public void errorMessageShouldBeDisplayed(String errMessage) {
         assertThat(getDriver().findElement(By.xpath("//mat-error")).isDisplayed()).isTrue();
     }
