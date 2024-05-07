@@ -3,6 +3,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.sl.In;
 import net.bytebuddy.utility.RandomString;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
@@ -11,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.assertj.core.api.Assertions;
 import support.TestContext;
+import org.testng.Assert;
 
 
 import static support.TestContext.getDriver;
@@ -23,12 +25,12 @@ public class MultipleOtherLeo {
 
     @Then("I click on the quiz with title {string}")
     public void iClickOnTheQuizWithTitle(String title) {
-        getDriver().findElement(By.xpath("//mat-panel-title[contains(text(), '"+title+"')]")).click();
+        getDriver().findElement(By.xpath("//mat-panel-title[contains(text(), '" + title + "')]")).click();
     }
 
     @And("I click quiz {string} button {string}")
     public void iClickQuizButton(String title, String btn) {
-        getDriver().findElement(By.xpath("//mat-panel-title[contains(text(), '"+title+"')]/../../..//span[contains(text(),'"+btn+"')]")).click();
+        getDriver().findElement(By.xpath("//mat-panel-title[contains(text(), '" + title + "')]/../../..//span[contains(text(),'" + btn + "')]")).click();
     }
 
     @Then("other option is displayed")
@@ -65,11 +67,33 @@ public class MultipleOtherLeo {
 
     @When("I type {int} symbols to {string} field in {string}")
     public void iTypeSymbolsToFieldIn(int iLong, String oNum, String qNum) {
-        boolean useLet =true;
-        boolean useNum =true;
+        boolean useLet = true;
+        boolean useNum = true;
         String symLong = RandomStringUtils.random(iLong, useLet, useNum);
         String xpath = "//mat-panel-title[contains(text(),'" + qNum + "')]/../../..//*[@placeholder='" + oNum + "']";
         getDriver().findElement(By.xpath(xpath)).sendKeys(symLong);
     }
 
+    @Then("error message {string} should be displayed")
+    public void errorMessageShouldBeDisplayed(String msg) {
+//        getDriver().findElement(By.xpath("(//mat-error[contains(text(), 'This field is required')])[1]")).isDisplayed();
+        switch (msg) {
+            case "This field is required":
+                getDriver().findElement(By.xpath("(//mat-error[contains(text(), 'This field is required')])[1]")).isDisplayed();
+                break;
+            case "*Choose at least one correct answer":
+                getDriver().findElement(By.xpath("//div[contains(text(), 'one correct answer')]")).isDisplayed();
+                break;
+
+        }
+    }
+
+    @Then("verify disabled {string} for {string}")
+    public void verifyDisabled(String bt , String opt )  {
+
+        getDriver().findElement(By.xpath("//label[contains(text(), '"+ opt +"')]/ancestor::*[6]//mat-icon[text()='settings']")).click();
+        getDriver().findElement(By.xpath("//button[@disabled='true' and span[contains(text(), '"+ bt +"')]]")).isDisplayed();
+        getDriver().findElement(By.xpath("//button [4]")).click();;
+
+    }
 }
