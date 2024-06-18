@@ -5,4 +5,4 @@
     @git1
     Scenario: My first git experience
       Given I learn git
-      When I create a conflict with Vasily
+      When I create a conflict with Galina
