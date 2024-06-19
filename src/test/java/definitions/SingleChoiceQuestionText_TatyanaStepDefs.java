@@ -2,6 +2,7 @@ package definitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -44,6 +45,15 @@ public class SingleChoiceQuestionText_TatyanaStepDefs {
             if(title.getText().contains(quizTitle)){
                 assertThat(title.isDisplayed()).isFalse();
             }
+        }
+    }
+
+    @When("I add up to {int} options in {string}")
+    public void iAddUpToOptionsIn(int num, String qNum) {
+        for (int i = 3; 1 <= num ; i++) {
+            getDriver().findElement(By.xpath("//mat-panel-title[contains(text(),'"+qNum+"')]/../../..//span[contains(text(),'AddOption')]]")).click();
+            getDriver().findElement(By.xpath(""));
+
         }
     }
 }
