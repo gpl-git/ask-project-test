@@ -17,7 +17,7 @@ Feature: Single Choice Question Options Scenarios
     And I add a question
     And I wait for 1 sec
     When I select "Single" question in "Q1"
-    When I type "Question 1" into question field of "Q1"
+    When I type "Question1" into question filed of "Q1"
     And I type "" into "Option 1*" field of "Q1"
     When I click "Save" button
     And I wait for 1 sec
@@ -39,7 +39,7 @@ Feature: Single Choice Question Options Scenarios
     And I add a question
     And I wait for 1 sec
     When I select "Single" question in "Q1"
-    When I type "Question 1" into question field of "Q1"
+    When I type "Question1" into question filed of "Q1"
     And I type "Answer" into "Option 1*" field of "Q1"
     When I click "Save" button
     And I wait for 1 sec
@@ -61,7 +61,7 @@ Feature: Single Choice Question Options Scenarios
     And I add a question
     And I wait for 1 sec
     When I select "Single" question in "Q1"
-    When I type "Question 1" into question field of "Q1"
+    When I type "Question 1" into question filed of "Q1"
     And I type "Answer" into "Option 1*" field of "Q1"
     And I type "Answer2" into "Option 2*" field of "Q1"
     When I click "Save" button
