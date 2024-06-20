@@ -15,7 +15,7 @@ public class StudentStepdefs {
 
     @Then("{string} should b displayed")
     public void shouldBDisplayed(String expMessage) {
-        String actMessage = getDriver().findElement(By.xpath("//h1[@id='mat-dialog-title-0']")).getText();
+        String actMessage = getDriver().findElement(By.xpath("//h1[text()='Changing Password']")).getText();
         System.out.println(actMessage);
         assertThat(actMessage.contains(expMessage)).isTrue();
 
@@ -47,6 +47,20 @@ public class StudentStepdefs {
         String actSettings =  getDriver().findElement(By.xpath("//h4[contains(text(),'Settings')]")).getText();
         System.out.println(actSettings);
         assertThat(actSettings.equals(expSettings)).isTrue();
+    }
+
+    @Then("pop-up message {string} should be displayed")
+    public void popUpMessageShouldBeDisplayed(String errorMessage) {
+        String actError = getDriver().findElement(By.xpath("//div[contains(text(),'Authentication failed. User not found or password ')]")).getText();
+        System.out.println(actError);
+        assertThat(actError.equals(errorMessage)).isTrue();
+    }
+
+    @Then("{string} should be displayed VI")
+    public void shouldBeDisplayedVI(String reqField) {
+        String actRequired =  getDriver().findElement(By.xpath("//mat-error[@id='mat-error-1']")).getText();
+        System.out.println(actRequired);
+        assertThat(actRequired.equals(reqField)).isTrue();
     }
 }
 

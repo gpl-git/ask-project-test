@@ -25,4 +25,34 @@ Feature: Change Password
     When I click "Change" button    VI
     Then I wait for 2 sec
     Then "Settings" should be displayed
+    Then I click "Change Your Password" button
+    And I wait for 2 sec
+    Then "Changing Password" should b displayed
+    Then I wait for 1 sec
+    Then I type "abc123" into current password field
+    Then I wait for 1 sec
+    Then I type "zxcvb" into new password field
+    Then I type "zxcvb" into confirm new password field
+    When I click "Change" button    VI
+    Then I wait for 2 sec
+    Then "Settings" should be displayed
 
+    @changepass2
+    Scenario: Wrong current password
+    Then I type "zxcvbn" into current password field
+    Then I wait for 1 sec
+    Then I type "abc123" into new password field
+    Then I type "abc123" into confirm new password field
+    When I click "Change" button    VI
+    Then I wait for 2 sec
+    Then pop-up message "Authentication failed. User not found or password does not match" should be displayed
+
+#      @changepass4
+#      Scenario:
+#        Then I type "zxcvb" into current password field
+#        Then I wait for 1 sec
+#        Then I type "" into new password field
+#        Then I wait for 2 sec
+#        Then I type "abc123" into confirm new password field
+#        Then I wait for 2 sec
+#        Then "This field is required" should be displayed VI
