@@ -112,3 +112,14 @@ Feature: Single Choice Question Text scenarios
 #    This test is invalid; there is a known bug - a text input field accepts more than 1000 characters
 
 
+@tag
+Scenario: SC Question Number of options
+  Given I type "Single Choice Question Number of Options" as quiz title
+  And I add a question
+  And I wait for 1 sec
+  When I select "Single" question in "Q1"
+  When I type "This is a valid input into the text field 123@$%" into question filed of "Q1"
+  And I type "Option 1" into "Option 1*" field of "Q1"
+  And I type "Option 2" into "Option 2*" field of "Q1"
+  When I select "Option 2*" as a correct option in "Q1"
+  When I add up to 5 options in "Q1"
