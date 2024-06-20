@@ -47,12 +47,4 @@ Feature: Change Password
     Then I wait for 2 sec
     Then pop-up message "Authentication failed. User not found or password does not match" should be displayed
 
-#      @changepass4
-#      Scenario:
-#        Then I type "zxcvb" into current password field
-#        Then I wait for 1 sec
-#        Then I type "" into new password field
-#        Then I wait for 2 sec
-#        Then I type "abc123" into confirm new password field
-#        Then I wait for 2 sec
-#        Then "This field is required" should be displayed VI
+

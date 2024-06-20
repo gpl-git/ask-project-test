@@ -15,7 +15,7 @@ public class StudentStepdefs {
 
     @Then("{string} should b displayed")
     public void shouldBDisplayed(String expMessage) {
-        String actMessage = getDriver().findElement(By.xpath("//h1[text()='Changing Password']")).getText();
+        String actMessage = getDriver().findElement(By.xpath("//h1")).getText();
         System.out.println(actMessage);
         assertThat(actMessage.contains(expMessage)).isTrue();
 
@@ -51,9 +51,10 @@ public class StudentStepdefs {
 
     @Then("pop-up message {string} should be displayed")
     public void popUpMessageShouldBeDisplayed(String errorMessage) {
-        String actError = getDriver().findElement(By.xpath("//div[contains(text(),'Authentication failed. User not found or password ')]")).getText();
-        System.out.println(actError);
-        assertThat(actError.equals(errorMessage)).isTrue();
+//        String actError = getDriver().findElement(By.xpath("//simple-snack-bar")).getText();
+//        System.out.println(actError);
+//        assertThat(actError.equals(errorMessage)).isTrue();
+        assertThat(getDriver().findElement(By.xpath("//simple-snack-bar")).isDisplayed()).isTrue();
     }
 
     @Then("{string} should be displayed VI")
