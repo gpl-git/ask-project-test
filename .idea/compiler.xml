@@ -9,5 +9,8 @@
         <module name="java-webdriver-cucumber" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="java-webdriver-cucumber" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
