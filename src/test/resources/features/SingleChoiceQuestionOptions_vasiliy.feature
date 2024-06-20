@@ -21,7 +21,7 @@ Feature: Single Choice Question Options Scenarios
     And I type "" into "Option 1*" field of "Q1"
     When I click "Save" button
     And I wait for 1 sec
-    Then error message "This field is required." is displayed
+    Then error message "This field is required" is displayed
 
   @single_choice_question_options2
   Scenario: Option field requires two options to be written
@@ -43,7 +43,7 @@ Feature: Single Choice Question Options Scenarios
     And I type "Answer" into "Option 1*" field of "Q1"
     When I click "Save" button
     And I wait for 1 sec
-    Then error message "This field is required." is displayed
+    Then error message "This field is required" is displayed
 
   @single_choice_question_options3
     Scenario: Option field requires correct answer to be indicated
